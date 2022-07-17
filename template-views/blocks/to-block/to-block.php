@@ -21,6 +21,8 @@
     </div>
 </div><!-- .to-block -->
 <button class="btn js-provera">Provera</button>
-<span class="js-provera-error-message"></span>
+<span class="js-provera-error-message"></span><br>
+<span>*Ovo dugme proverava da li je datum Do veci od datuma Od.</span>
+
 
 
