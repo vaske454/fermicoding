@@ -1,6 +1,4 @@
 <?php
-//start session
-
 if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
     $url = "https://";
 else
@@ -18,17 +16,17 @@ if (isset($_POST['log_in'])) {
     $password = trim($_POST['password']);
     // Check for empty and invalid inputs
     if (empty($username)) { ?>
-        <span>Niste uneli username.</span>
+        <span class="js-login-error-message">Niste uneli username.</span>
         <?php
         array_push($errors, "Please enter a valid username");
     } elseif (empty($password)) { ?>
-        <span>Niste uneli password.</span>
+        <span class="js-login-error-message">Niste uneli password.</span>
         <?php
         array_push($errors, "Please enter a valid password.");
     } else {
         // Check if the user may be logged in
         if (!$user->login($username, $password)) { ?>
-            <span>Pogresan username i/ili password.</span><?php
+            <span class="js-login-error-message">Pogresan username i/ili password.</span><?php
             array_push($errors, "Incorrect log-in credentials.");
         }
     }

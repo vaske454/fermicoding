@@ -52,6 +52,8 @@ class User {
         // Check if user session has been set
         if (isset($_SESSION['session'])) {
             return true;
+        } else {
+            return false;
         }
     }
 
