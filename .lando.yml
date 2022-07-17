@@ -1,0 +1,10 @@
+name: fermicoding
+recipe: lamp
+services:
+  myservice:
+    type: phpmyadmin
+config:
+  xdebug: true
+  php: "7.4"
+  webroot: .
+
