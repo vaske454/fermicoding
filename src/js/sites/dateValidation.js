@@ -58,6 +58,10 @@ const DateValidation = {
         })
     },
 
+    /**
+     * @desc From Form Validation
+     * @returns {string|boolean}
+     */
     validationFromForm: function() {
         //serialize array
         const form = DateValidation.$domFromBlockForm.serializeArray();
@@ -165,6 +169,10 @@ const DateValidation = {
         return true;
     },
 
+    /**
+     * @desc To Form Validation
+     * @returns {string|boolean}
+     */
     validationToForm: function() {
         const form = DateValidation.$domToBlockForm.serializeArray();
 
@@ -271,6 +279,9 @@ const DateValidation = {
         return true;
     },
 
+    /**
+     * @desc Validate if the To date is less than From Date
+     */
     onClickValidation: function() {
         DateValidation.$domProvera.on('click', ()=>{
             DateValidation.$domProveraErrorMessage.empty();

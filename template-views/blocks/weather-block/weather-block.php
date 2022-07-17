@@ -1,7 +1,4 @@
 <?php
-//require 'model/DbConnection.php';
-
-
 date_default_timezone_set('Europe/Belgrade');
 $apiKey = '42edc93da664412ca69569d0d6894312';
 $cityId = '3194360';
@@ -24,7 +21,7 @@ $currentTemperature = isset($data->main->temp) ? $data->main->temp : '';
 ?>
 
 <?php if ($currentTemperature && $user->is_logged_in()): ?>
-<div class="weather-block">
-    <p>Current temperature: <?php echo $currentTemperature . '&#176;C'; ?></p>
-</div><!-- .weather-block -->
+    <div class="weather-block">
+        <p class="weather-text">Trenutna temperatura: <?php echo $currentTemperature . '&#176;C'; ?></p>
+    </div><!-- .weather-block -->
 <?php endif; ?>
