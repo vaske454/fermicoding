@@ -17,8 +17,10 @@ const LoginPopup = {
         let i = 1;
         LoginPopup.$domOpenAndCloseLoginPopupLink.on('click', ()=>{
             LoginPopup.$domOpenAndCloseLoginPopupLink.find('span').text('Close');
+            LoginPopup.$domOpenAndCloseLoginPopupLink.css('background-color', '#f44336');
             LoginPopup.$domLoginPopup.show();
             if (i % 2 === 0) {
+                LoginPopup.$domOpenAndCloseLoginPopupLink.css('background-color', '#4CAF50');
                 LoginPopup.$domOpenAndCloseLoginPopupLink.find('span').text('Login');
                 LoginPopup.$domLoginPopup.hide();
             }
@@ -31,6 +33,7 @@ const LoginPopup = {
      */
     closePopup: function() {
         $('.js-close-popup').on('click', ()=>{
+            LoginPopup.$domOpenAndCloseLoginPopupLink.css('background-color', '#4CAF50');
             LoginPopup.$domOpenAndCloseLoginPopupLink.find('span').text('Login');
             LoginPopup.$domLoginPopup.hide();
         });

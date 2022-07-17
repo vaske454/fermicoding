@@ -20,7 +20,7 @@
         </form>
     </div>
 </div><!-- .to-block -->
-<button class="js-provera">Provera</button>
+<button class="btn js-provera">Provera</button>
 <span class="js-provera-error-message"></span>
 
 

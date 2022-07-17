@@ -37,33 +37,37 @@ if (isset($_GET['logout']) && ($_GET['logout'] == 'true')) {
     $user->log_out();
     $user->redirect('index.php');
 }
-if ($user->is_logged_in()):
 ?>
-<p>Hello, <?php echo $username . '!'; ?></p>
-<?php endif; ?>
-<a style="display: <?= ($user->is_logged_in() ) ? 'none' : 'block'; ?>" href="javascript:;" class="js-open-login-popup">
-    <span class="login-text">Login</span>
-</a>
+<div class="login-nav">
+    <a style="display: <?= ($user->is_logged_in() ) ? 'none' : 'block'; ?>" href="javascript:;" class="login-button js-open-login-popup">
+        <span class="login-text">Uloguj se</span>
+    </a>
+</div>
 <div style="display: none;" class="js-popup-login modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
      aria-hidden="true">
     <form action="<?= $url; ?>" method="POST" class="login__form">
         <div class="d-flex flex-column align-items-center justify-content-center">
 
             <h1 class="pb-3">Sign In</h1>
-            <button class="js-close-popup" type="button">Close</button>
+            <button class="btn-close js-close-popup" type="button">Close</button>
             <label for="username"></label>
             <input type="text" name="username" class="login__form__input" id="username" placeholder="Enter username">
 
             <label for="password"></label>
             <input type="password" name="password" class="login__form__input" id="password" placeholder="Password">
 
-            <input type="submit" class="login-btn mt-3" name="log_in" value="Sign in">
+            <input type="submit" class="btn login-btn mt-3" name="log_in" value="Sign in">
         </div>
     </form>
 </div><!-- .js-popup-login -->
-    <a style="display: <?= (!$user->is_logged_in() ) ? 'none' : 'block'; ?>" class="site-header__icon" href="?logout=true">
-        <span class="site-header__icon-text"><?php echo 'Log Out'; ?></span>
+    <a style="display: <?= (!$user->is_logged_in() ) ? 'none' : 'block'; ?>" class="btn-logout site-header__icon" href="?logout=true">
+        <span class="site-header__icon-text"><?php echo 'Izloguj se'; ?></span>
     </a>
+<?php
+if ($user->is_logged_in()):
+    ?>
+    <p class="login-text">Zdravo, <?php echo $username . '!'; ?></p>
+<?php endif; ?>
 
 
 <?php
@@ -90,6 +94,6 @@ $currentTemperature = isset($data->main->temp) ? $data->main->temp : '';
 
 <?php if ($currentTemperature && $user->is_logged_in()): ?>
     <div class="weather-block">
-        <p>Current temperature: <?php echo $currentTemperature . '&#176;C'; ?></p>
+        <p class="weather-text">Trenutna temperatura: <?php echo $currentTemperature . '&#176;C'; ?></p>
     </div><!-- .weather-block -->
 <?php endif; ?>
