@@ -40,7 +40,9 @@ const DateValidation = {
     onChangeFromBlock: function() {
         DateValidation.$domFromBlockForm.find('input').on('input change', function(){
             const fromValidationResult = DateValidation.validationFromForm();
-            console.log(fromValidationResult);
+            if (fromValidationResult === true) {
+                // do something
+            }
         });
     },
 
@@ -50,7 +52,9 @@ const DateValidation = {
     onChangeToBlock: function() {
         DateValidation.$domToBlockForm.find('input').on('input change', function() {
             const toValidationResult = DateValidation.validationToForm();
-            console.log(toValidationResult);
+            if (toValidationResult === true) {
+                // do something
+            }
         })
     },
 
@@ -271,18 +275,18 @@ const DateValidation = {
         DateValidation.$domProvera.on('click', ()=>{
             DateValidation.$domProveraErrorMessage.empty();
             if (parseInt(DateValidation.$domYearTo.val()) === parseInt(DateValidation.$domYearFrom.val()) && parseInt(DateValidation.$domMonthTo.val()) === parseInt(DateValidation.$domMonthFrom.val()) && parseInt(DateValidation.$domDayTo.val()) < parseInt($('.js-day-from').val())) {
-                DateValidation.$domProveraErrorMessage.text('Datum Do mora biti veci od datume Od.');
-                return 'Datum Do mora biti veci od datume Od.';
+                DateValidation.$domProveraErrorMessage.text('Datum Do mora biti veci (ili jednak) od datume Od.');
+                return 'Datum Do mora biti veci (ili jednak) od datume Od.';
             }
 
             if (parseInt(DateValidation.$domYearTo.val()) === parseInt(DateValidation.$domYearFrom.val()) && parseInt(DateValidation.$domMonthTo.val()) < parseInt(DateValidation.$domMonthFrom.val())) {
-                DateValidation.$domProveraErrorMessage.text('Datum Do mora biti veci od datume Od.');
-                return 'Datum Do mora biti veci od datume Od.';
+                DateValidation.$domProveraErrorMessage.text('Datum Do mora biti veci (ili jednak) od datume Od.');
+                return 'Datum Do mora biti veci (ili jednak) od datume Od.';
             }
 
             if (parseInt(DateValidation.$domYearTo.val()) < parseInt(DateValidation.$domYearFrom.val())) {
-                DateValidation.$domProveraErrorMessage.text('Datum Do mora biti veci od datume Od.');
-                return 'Datum Do mora biti veci od datume Od.';
+                DateValidation.$domProveraErrorMessage.text('Datum Do mora biti veci (ili jednak) od datume Od.');
+                return 'Datum Do mora biti veci (ili jednak) od datume Od.';
             }
             DateValidation.$domProveraErrorMessage.empty();
         });
